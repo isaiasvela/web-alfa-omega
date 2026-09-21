@@ -1,17 +1,17 @@
 :root {
-  --bg: #0a1220;
-  --bg-soft: #101f33;
-  --panel: #f4efe8;
-  --panel-strong: #e9dfd2;
+  --bg: #f5f2ec;
+  --bg-soft: #e9e3d8;
+  --panel: #f5f2ec;
+  --panel-strong: #efe7dc;
   --card: #ffffff;
-  --primary: #a67c2d;
-  --primary-dark: #7f5d1e;
-  --secondary: #d0b073;
-  --text: #1d2430;
-  --text-light: #e9edf5;
-  --muted: #5d6573;
-  --line: rgba(18, 26, 39, 0.12);
-  --shadow: 0 18px 40px rgba(7, 18, 31, 0.14);
+  --primary: #d7b875;
+  --primary-dark: #786f61;
+  --secondary: #b8964f;
+  --text: #171717;
+  --text-light: #ffffff;
+  --muted: #555555;
+  --line: rgba(23, 23, 23, 0.1);
+  --shadow: 0 18px 40px rgba(15, 19, 22, 0.12);
 }
 
 * { box-sizing: border-box; }
@@ -61,12 +61,13 @@ textarea {
 }
 
 .site-header {
-  position: sticky;
+  position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
-  background: rgba(10, 18, 32, 0.88);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  border-bottom: none;
 }
 
 .nav-wrap {
@@ -159,15 +160,24 @@ textarea {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: #111827;
-  box-shadow: 0 12px 24px rgba(166, 124, 45, 0.3);
+  background: #f5f2ec;
+  color: #171717;
+  box-shadow: 0 12px 24px rgba(15, 19, 22, 0.12);
 }
 
 .btn-secondary {
+  background: rgba(255,255,255,0.55);
+  border-color: rgba(23, 23, 23, 0.15);
+  color: var(--text);
+  box-shadow: 0 8px 18px rgba(15, 19, 22, 0.05);
+}
+
+.hero .btn-secondary,
+.site-header .btn-secondary {
   background: transparent;
-  border-color: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.45);
   color: var(--text-light);
+  box-shadow: none;
 }
 
 .nav-cta {
@@ -187,7 +197,7 @@ textarea {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(8, 13, 21, 0.82), rgba(8, 13, 21, 0.55));
+  background: linear-gradient(115deg, rgba(15, 19, 22, 0.93), rgba(15, 19, 22, 0.58));
 }
 
 .hero-content {
@@ -229,8 +239,7 @@ h2 {
 }
 
 #obra h2 {
-  color: #ffffff;
-  text-shadow: 0 1px 0 rgba(0,0,0,0.28);
+  color: #13233b;
 }
 
 .hero-text {
@@ -281,8 +290,8 @@ h2 {
 }
 
 .section-contrast {
-  background: #111c2b;
-  color: var(--text-light);
+  background: #e9e3d8;
+  color: #171717;
 }
 
 .two-column {
@@ -389,63 +398,93 @@ h2 {
 .section-contrast h2,
 .section-contrast p,
 .section-contrast .eyebrow {
-  color: var(--text-light);
+  color: #171717;
 }
 
-.concerts-grid {
+.event-list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.4rem;
+  gap: 1.2rem;
 }
 
-.concert-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.08);
-  padding: 1.7rem;
-  border-radius: 22px;
-}
-
-.concert-card.featured {
-  background: linear-gradient(180deg, rgba(166,124,45,0.18), rgba(255,255,255,0.04));
-}
-
-.badge {
-  display: inline-flex;
+.event-item {
+  display: grid;
+  grid-template-columns: 180px 1fr 42px;
   align-items: center;
-  padding: 0.4rem 0.7rem;
-  border-radius: 999px;
-  font-size: 0.72rem;
+  gap: 1.5rem;
+  background: rgba(255,255,255,0.35);
+  border: 1px solid rgba(23, 23, 23, 0.08);
+  border-radius: 22px;
+  padding: 1.3rem 1.5rem;
+  box-shadow: 0 14px 28px rgba(26, 20, 12, 0.06);
+}
+
+.event-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 110px;
+  border-right: 1px solid rgba(23, 23, 23, 0.12);
+  text-align: center;
+  padding-right: 1rem;
+}
+
+.event-date strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 0.9;
+  color: #786f61;
+}
+
+.event-date span {
+  margin-top: 0.3rem;
+  font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  background: rgba(166,124,45,0.2);
-  color: #f9d99b;
+  color: #5d4d32;
 }
 
-.badge.muted {
-  background: rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.7);
+.event-copy {
+  min-width: 0;
 }
 
-.concert-card h3 {
-  margin-top: 1rem;
-  font-size: 2.2rem;
+.event-copy h3 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.9rem, 2vw, 2.5rem);
+  color: #171717;
 }
 
-.concert-date {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #f3d08f;
+.event-copy p {
+  margin: 0;
+  color: #4b4a48;
+  font-size: 1rem;
 }
 
+.event-arrow {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d7b875, #786f61);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.badge,
+.badge.muted,
+.concert-card,
+.concert-date,
 .concert-meta {
-  color: rgba(255,255,255,0.75);
+  display: none;
 }
 
 .musicians-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
+  gap: 1.4rem;
   margin-top: 2rem;
 }
 
@@ -455,6 +494,11 @@ h2 {
   border-radius: 24px;
   padding: 1.6rem;
   box-shadow: var(--shadow);
+  min-height: 270px;
+}
+
+.musician-card-wide {
+  grid-column: span 2;
 }
 
 .wind-block {
@@ -584,7 +628,7 @@ h2 {
 }
 
 .section-contact {
-  background: linear-gradient(180deg, #f6f3ee, #f0e7dc);
+  background: linear-gradient(180deg, #f6f3ee, #efe7dc);
 }
 
 .contact-wrap {
@@ -646,8 +690,8 @@ h2 {
 }
 
 .site-footer {
-  background: #09131f;
-  color: rgba(255,255,255,0.7);
+  background: #0f1316;
+  color: rgba(255,255,255,0.72);
   padding: 1.2rem 0;
 }
 
@@ -685,17 +729,56 @@ h2 {
     min-height: 620px;
   }
 
-  .hero-stats,
+  .hero-content {
+    padding-top: 5rem;
+  }
+
+  h1 {
+    font-size: clamp(2.7rem, 14vw, 4.1rem);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .section {
+    padding: 4.2rem 0;
+  }
+
   .symphony-grid,
-  .concerts-grid,
   .musicians-grid,
   .gallery-grid,
   .video-grid {
     grid-template-columns: 1fr;
   }
 
-  .hero-stats {
-    display: grid;
+  .musician-card-wide {
+    grid-column: span 1;
+  }
+
+  .event-item {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    padding: 1.2rem;
+  }
+
+  .event-date {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid rgba(23, 23, 23, 0.12);
+    padding-right: 0;
+    padding-bottom: 0.8rem;
+  }
+
+  .event-arrow {
+    justify-self: end;
   }
 
   .section-heading,
@@ -711,5 +794,17 @@ h2 {
 
   .nav-wrap {
     min-height: 72px;
+  }
+
+  .brand-text strong {
+    font-size: 0.72rem;
+  }
+
+  .contact-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
   }
 }
