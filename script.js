@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     emailButton.addEventListener('click', async (event) => {
       event.preventDefault();
 
-      const email = 'contacto@orquestaalfaomega.org';
+      const email = 'alfaomegamusica@gmail.com';
       const subject = 'Consulta Orquesta Alfa & Omega';
       const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
 
